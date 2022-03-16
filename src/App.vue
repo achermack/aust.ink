@@ -1,10 +1,9 @@
 <template>
-  <v-app>
+  <v-app dark class="app-container">
     <v-main>
       <v-container
         fluid
-        class="d-flex justify-center align-center"
-        style="height: 100vh"
+        class="d-flex justify-center align-center app-container"
       >
         <Shortener />
       </v-container>
@@ -30,3 +29,10 @@ export default {
   }),
 };
 </script>
+<style>
+.app-container {
+  height: 100vh;
+  background: url("./assets/endless-constellation.svg") center center fixed !important;
+  background-size: cover;
+}
+</style>

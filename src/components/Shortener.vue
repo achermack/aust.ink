@@ -1,18 +1,29 @@
 <template>
-  <v-card min-width="50%">
+  <v-card min-width="50%" style="background-color: #e0e0e0" elevation="10">
     <v-card-title>aust.ink URL Shortener</v-card-title>
     <v-card-text> enter a long url you would like to shorten </v-card-text>
-    <v-text-field
-      placeholder="Example: https://cherm.io"
-      label="URL"
-      class="pa-4"
-      clearable
-      color="primary"
-      variant="outlined"
-      v-model="url"
-      :loading="loading"
-    ></v-text-field>
-    <v-flex class="pl-4" v-if="shortUrl != ''">
+    <v-col class="d-flex py-0 mb-0" cols="12">
+      <v-text-field
+        placeholder="Example: https://cherm.io"
+        label="URL goes here"
+        prepend-icon="mdi-link"
+        clearable
+        color="accent"
+        variant="outlined"
+        v-model="url"
+        :loading="loading"
+        @keydown="keyDown"
+      ></v-text-field>
+    </v-col>
+    <v-col class="d-flex ma-0 py-0" cols="12">
+      <v-spacer> </v-spacer>
+      <v-btn :disabled="loading" @click="shorten" color="primary"
+        ><v-icon>mdi-link-plus</v-icon>Shorten
+      </v-btn>
+    </v-col>
+    <v-col class="mt-2 mr-4 pl-0 ml-0" cols="3"> </v-col>
+
+    <v-container fluid class="pl-4" v-if="shortUrl != ''">
       <v-chip color="success" text-color="white" label class="ma-2">
         <v-icon>mdi-check</v-icon>
       </v-chip>
@@ -29,10 +40,7 @@
         >
         </v-text-field>
       </v-card-subtitle>
-    </v-flex>
-    <v-card-actions>
-      <v-btn @click="shorten" color="primary">Shorten</v-btn>
-    </v-card-actions>
+    </v-container>
   </v-card>
 </template>
 <script>
@@ -50,8 +58,10 @@ export default {
       }
       return url.protocol === "https:" || url.protocol === "http:";
     },
-    snackbar(message) {
-      this.$emit("snackbar", message);
+    keyDown(event) {
+      if (event.keyCode === 13) {
+        this.shorten();
+      }
     },
     shorten() {
       if (this.$data.url !== "" && this.isUrl(this.$data.url)) {
@@ -61,16 +71,13 @@ export default {
             url: this.$data.url,
           })
           .then((response) => {
-            toast.success(
-              "Short URL created successfully and copied to clipboard!",
-              {
-                timeout: 5000,
-              }
-            );
+            toast.success("Short URL created successfully!", {
+              timeout: 5000,
+            });
             this.$data.loading = false;
             this.$data.url = "";
             this.$data.shortUrl = `https://aust.ink/go/${response.data.item.hash}`;
-            navigator.clipboard.writeText(this.$data.shortUrl);
+            this.copyToClipboard();
           })
           .catch((error) => {
             this.$data.loading = false;
@@ -80,14 +87,20 @@ export default {
       }
     },
     copyToClipboard() {
-      navigator.clipboard.writeText(this.$data.shortUrl);
-      this.$data.copied = true;
-      setTimeout(() => {
-        this.$data.copied = false;
-      }, 1000);
-      toast.success("Short URL copied to clipboard!", {
-        timeout: 2000,
-      });
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(this.$data.shortUrl);
+        this.$data.copied = true;
+        setTimeout(() => {
+          this.$data.copied = false;
+        }, 1000);
+        toast.success("Short URL copied to clipboard!", {
+          timeout: 2000,
+        });
+      } else {
+        toast.error("Your browser does not support clipboard!", {
+          timeout: 2000,
+        });
+      }
     },
   },
   data() {
@@ -96,8 +109,6 @@ export default {
       url: "",
       shortUrl: "",
       copied: false,
-      snackbar: false,
-      text: "",
     };
   },
 };

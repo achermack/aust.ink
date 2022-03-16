@@ -1,11 +1,12 @@
 <template>
   <v-card min-width="50%" style="background-color: #e0e0e0" elevation="10">
-    <v-card-title>aust.ink URL Shortener</v-card-title>
-    <v-card-text> enter a long url you would like to shorten </v-card-text>
-    <v-col class="d-flex py-0 mb-0" cols="12">
+    <v-card-title class="text-h5">aust.ink url shortener</v-card-title>
+    <v-divider></v-divider>
+
+    <v-col class="d-flex pb-0 mb-0" cols="12">
       <v-text-field
         placeholder="Example: https://cherm.io"
-        label="URL goes here"
+        label="your url goes here"
         prepend-icon="mdi-link"
         clearable
         color="accent"

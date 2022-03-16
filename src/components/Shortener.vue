@@ -15,32 +15,28 @@
         @keydown="keyDown"
       ></v-text-field>
     </v-col>
-    <v-col class="d-flex ma-0 py-0" cols="12">
-      <v-spacer> </v-spacer>
-      <v-btn :disabled="loading" @click="shorten" color="primary"
-        ><v-icon>mdi-link-plus</v-icon>Shorten
-      </v-btn>
-    </v-col>
-    <v-col class="mt-2 mr-4 pl-0 ml-0" cols="3"> </v-col>
-
-    <v-container fluid class="pl-4" v-if="shortUrl != ''">
+    <v-container fluid class="pl-2" v-if="shortUrl != ''">
       <v-chip color="success" text-color="white" label class="ma-2">
         <v-icon>mdi-check</v-icon>
       </v-chip>
       URL Created Successfully!
-      <v-card-subtitle>
-        <v-text-field
-          :append-inner-icon="
-            copied ? 'mdi-clipboard-check' : 'mdi-clipboard-check-outline'
-          "
-          readonly
-          variant="outlined"
-          v-model="shortUrl"
-          @click:append-inner="copyToClipboard"
-        >
-        </v-text-field>
-      </v-card-subtitle>
+      <v-text-field
+        :append-inner-icon="
+          copied ? 'mdi-clipboard-check' : 'mdi-clipboard-check-outline'
+        "
+        readonly
+        variant="outlined"
+        v-model="shortUrl"
+        @click:append-inner="copyToClipboard"
+      >
+      </v-text-field>
     </v-container>
+    <v-card-actions>
+      <v-spacer> </v-spacer>
+      <v-btn :disabled="loading" @click="shorten" color="primary"
+        ><v-icon>mdi-link-plus</v-icon>Shorten
+      </v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 <script>

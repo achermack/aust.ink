@@ -49,8 +49,10 @@ export default defineEventHandler(async (event) => {
         return {
             status: 500,
             body: {
-                message: 'server error',
+                message: e.message,
             },
+            error: e
+
         }
     }
 })

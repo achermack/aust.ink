@@ -86,7 +86,7 @@ export default {
           }),
         })
           .then((res) => {
-            if (res.data.length > 0) {
+            if (res.status === 200) {
               this.shortUrl = "https://aust.ink/go/" + res.data.hash;
               this.displayToast("Created URL: " + this.shortUrl, "success");
               this.url = "";

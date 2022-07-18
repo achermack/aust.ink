@@ -86,10 +86,15 @@ export default {
           }),
         })
           .then((res) => {
-            this.shortUrl = "https://aust.ink/go/" + res.data.hash;
-            this.displayToast("Created URL: " + this.shortUrl, "success");
-            this.url = "";
-            this.copyToClipboard();
+            if (res.data.length > 0) {
+              this.shortUrl = "https://aust.ink/go/" + res.data.hash;
+              this.displayToast("Created URL: " + this.shortUrl, "success");
+              this.url = "";
+              this.copyToClipboard();
+            } else {
+              this.displayToast("Error Creating url", "error");
+              this.displayToast(res, "error");
+            }
           })
           .catch((err) => {
             this.displayToast(err, "error");

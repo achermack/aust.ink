@@ -1,25 +1,27 @@
 <template>
-  <transition
-    enter-active-class="duration-300 east-out opacity-0"
-    enter-to-class="opacity-100"
-    leave-active-class="duration-200 ease-in"
-    leave-to-class="opacity-0"
-    leave-class="opacity-100"
-  >
-    <div v-if="store.show" class="transition ease-in-out delay-150">
-      <div class="toast toast-top toast-end">
+  <div>
+    <div class="toast toast-top toast-end">
+      <transition-group
+        enter-active-class="duration-300 east-out opacity-0"
+        enter-to-class="opacity-100"
+        leave-active-class="duration-200 ease-in"
+        leave-to-class="opacity-0"
+        leave-class="opacity-100"
+      >
         <div
-          v-for="msg in store.messages"
-          :key="msg.msg"
-          :class="`alert alert-${msg.type}`"
+          v-for="(item, show) in store.messages"
+          :key="item"
+          :v-if="show"
+          class="alert alert-info"
         >
           <div>
-            <span>{{ msg.msg }}</span>
+            <IconLib name="InfoIcon" />
+            <span>{{ item.msg }}</span>
           </div>
         </div>
-      </div>
-    </div></transition
-  >
+      </transition-group>
+    </div>
+  </div>
 </template>
 <script lang="ts">
 import { useToastStore } from "~/store/toast";
@@ -34,9 +36,9 @@ export default {
       after((res) => {
         if (name === "showToast") {
           setTimeout(() => {
-            if (store.messages.length === 1) {
-              store.hideToast();
-            }
+            store.hideMessage(args[0].msg);
+          }, 3000);
+          setTimeout(() => {
             store.removeMessage(args[0].msg);
           }, 5000);
         }

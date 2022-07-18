@@ -10,17 +10,20 @@ export const useToastStore = defineStore({
     actions: {
         showToast(payload) {
             // this.message = payload.msg;
-            this.messages.push({msg: payload.msg, type: payload.type});
+            this.messages.push({msg: payload.msg, type: payload.type, show: true});
             // this.type = payload.type;
-            this.show = true;
+            // this.show = true;
         },
 
         removeMessage(message) {
             this.messages.splice(this.messages.indexOf(x => x.msg === message), 1);
         },
 
-        hideToast() {
-            this.show = false;
+        hideMessage(message) {
+            const msg = this.messages.find(x => x.msg === message)
+            if (msg) {
+                msg.show = false;
+            }
         }
 
     },

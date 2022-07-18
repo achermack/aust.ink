@@ -12,7 +12,7 @@
           v-for="(item, show) in store.messages"
           :key="item"
           :v-if="show"
-          class="alert alert-info"
+          class="alert alert-success"
         >
           <div>
             <IconLib name="InfoIcon" />

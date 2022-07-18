@@ -4,7 +4,10 @@ import { createClient  } from "@supabase/supabase-js"
 
 
 export default defineEventHandler(async (event) => {
+    
     const hash = event.context.params.hash
+    
+   
 
     const { SUPABASE_URL, SUPABASE_KEY } = process.env
     try {

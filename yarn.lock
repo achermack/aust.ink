@@ -1726,15 +1726,15 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-daisyui@^2.19.0:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.19.0.tgz#9d231c3fed093f095d439db457e8e4cb9dca2a17"
-  integrity sha512-lLOz4cHm3xpm0AfdFojDFrhiDu4hZTdEbcVJri+KzQn1HvxmZS4STVujn8tV4RQXjchGdnIsXFqxd6F7rVZBiA==
+daisyui@^2.20.0:
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.20.0.tgz#6abeeb628912a15636bfc9e924417d985c92fa89"
+  integrity sha512-97xFBWQOXV/JCVRrGI5xranElKMmXIajDxojTQ1qoYwcWlkfFE7hY4D/NyHVIzlQb+B4xbiXhVPJM7EleRAY8g==
   dependencies:
     color "^4.2"
     css-selector-tokenizer "^0.8.0"
     postcss-js "^4.0.0"
-    tailwindcss "^3.0"
+    tailwindcss "^3"
 
 data-uri-to-buffer@^4.0.0:
   version "4.0.0"
@@ -3724,7 +3724,7 @@ pathe@^0.2.0:
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.2.0.tgz#30fd7bbe0a0d91f0e60bae621f5d19e9e225c339"
   integrity sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==
 
-pathe@^0.3.0, pathe@^0.3.1, pathe@^0.3.2:
+pathe@^0.3.0, pathe@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.2.tgz#016345ed643027404d7a9ed8d1454ad997a1483a"
   integrity sha512-qhnmX0TOqlCvdWWTkoM83wh5J8fZ2yhbDEc9MlsnAEtEc+JCwxUKEwmd6pkY9hRe6JR1Uecbc14VcAKX2yFSTA==
@@ -4705,7 +4705,7 @@ tailwind-config-viewer@^1.7.1:
     portfinder "^1.0.26"
     replace-in-file "^6.1.0"
 
-tailwindcss@*, tailwindcss@^3.0, tailwindcss@^3.1.6:
+tailwindcss@*, tailwindcss@^3, tailwindcss@^3.1.6:
   version "3.1.6"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.6.tgz#bcb719357776c39e6376a8d84e9834b2b19a49f1"
   integrity sha512-7skAOY56erZAFQssT1xkpk+kWt2NrO45kORlxFPXUt3CiGsVPhH1smuH5XoDH6sGPXLyBv+zgCKA2HWBsgCytg==

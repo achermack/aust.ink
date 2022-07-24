@@ -1,42 +1,9 @@
-# Nuxt 3 Minimal Starter
+# 📃aust.ink | Nuxt3 URL Shortener
+[![Netlify Status](https://api.netlify.com/api/v1/badges/80120402-1b58-4bdd-9ec4-c90e30dd5fc2/deploy-status)](https://app.netlify.com/sites/storied-naiad-9c5d22/deploys)   
+My simple URL shortener app that I built to try out the new Nuxt 3 Framework   
+Created using [Nuxt3](https://v3.nuxtjs.org/), [Supabase](https://supabase.nuxtjs.org/), [TailwindCSS](https://tailwindcss.com/), and [DaisyUI](https://daisyui.com/)
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-## Setup
 
-Make sure to install the dependencies:
+## 🚀 Live site: [aust.ink](https://aust.ink)
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.

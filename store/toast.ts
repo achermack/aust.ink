@@ -9,10 +9,7 @@ export const useToastStore = defineStore({
     }, 
     actions: {
         showToast(payload) {
-            // this.message = payload.msg;
-            this.messages.push({msg: payload.msg, type: payload.type, show: true});
-            // this.type = payload.type;
-            // this.show = true;
+            this.messages.push({msg: payload.msg, type: payload.type, timeout: payload.timeout, show: true});
         },
 
         removeMessage(message) {

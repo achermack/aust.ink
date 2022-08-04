@@ -12,7 +12,12 @@
           v-for="(item, show) in store.messages"
           :key="item"
           :v-if="show"
-          class="alert alert-success"
+          class="alert"
+          :class="{
+            'alert-error': item.type === 'error',
+            'alert-success': item.type === 'success',
+            'alert-warning': item.type === 'warning',
+          }"
         >
           <div>
             <IconLib name="InfoIcon" />
@@ -32,15 +37,15 @@ export default {
   setup() {
     const store = useToastStore();
 
-    const hide = store.$onAction(({ name, store, args, after, onError }) => {
+    store.$onAction(({ name, store, args, after, onError }) => {
       after((res) => {
         if (name === "showToast") {
           setTimeout(() => {
             store.hideMessage(args[0].msg);
-          }, 3000);
+          }, args[0].timeout);
           setTimeout(() => {
             store.removeMessage(args[0].msg);
-          }, 5000);
+          }, args[0].timeout + 1000);
         }
       });
     });

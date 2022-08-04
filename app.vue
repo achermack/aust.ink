@@ -173,6 +173,7 @@ export default {
       const payload = {
         msg,
         type,
+        timeout: 1000,
       };
 
       this.store.showToast(payload);
@@ -204,9 +205,6 @@ export default {
         this.displayToast("Invalid URL", "error");
       }
       this.loading = false;
-
-      // this.displayToast("Shortening", "success");
-      // console.log(this.isUrl(this.url));
     },
     copyToClipboard() {
       if (navigator.clipboard) {

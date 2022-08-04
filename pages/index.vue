@@ -1,6 +1,5 @@
 <template>
   <div class="flex h-screen bg-slate-800">
-    <toast :message="toast.msg" :show="toast.show" :type="toast.type" />
     <div class="m-auto">
       <div class="card bg-white text-slate-800 align-middle">
         <div class="card-body w-96">
@@ -89,7 +88,7 @@
 </template>
 
 <script lang="ts">
-import { useToastStore } from "~/store/toast";
+import { ToastPayload, useToastStore } from "~/store/toast";
 
 export default {
   name: "URL Shortener",
@@ -133,10 +132,10 @@ export default {
         this.shorten();
       }
     },
-    displayToast(msg: string, type: string) {
-      const payload = {
-        msg,
-        type,
+    displayToast(message: string, type: string) {
+      const payload: ToastPayload = {
+        message: message,
+        type: type,
         timeout: 1000,
       };
 

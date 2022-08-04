@@ -21,12 +21,13 @@
         >
           <div>
             <IconLib name="InfoIcon" />
-            <span>{{ item.msg }}</span>
+            <span>{{ item.message }}</span>
           </div>
         </div>
       </transition-group>
     </div>
   </div>
+  <slot />
 </template>
 <script lang="ts">
 import { useToastStore } from "~/store/toast";
@@ -41,10 +42,10 @@ export default {
       after((res) => {
         if (name === "showToast") {
           setTimeout(() => {
-            store.hideMessage(args[0].msg);
+            store.hideMessage(args[0]);
           }, args[0].timeout);
           setTimeout(() => {
-            store.removeMessage(args[0].msg);
+            store.removeMessage(args[0]);
           }, args[0].timeout + 1000);
         }
       });

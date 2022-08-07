@@ -1,5 +1,4 @@
-
-import { createClient  } from "@supabase/supabase-js"
+import { sb } from "~~/server/supabase"
 
 
 
@@ -9,9 +8,7 @@ export default defineEventHandler(async (event) => {
     
    
 
-    const { SUPABASE_URL, SUPABASE_KEY } = process.env
     try {
-        const sb = createClient(SUPABASE_URL, SUPABASE_KEY)
 
 
         const { data, error } = await sb.from("urls").select('url').eq('hash', hash)

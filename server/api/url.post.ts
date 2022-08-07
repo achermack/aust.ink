@@ -1,4 +1,4 @@
-import { createClient  } from "@supabase/supabase-js"
+import { sb } from '../supabase'
 import * as sh from 'shorthash'
 
 interface URLObject {
@@ -11,9 +11,7 @@ interface URLObject {
 export default defineEventHandler(async (event) => {
     const body = await useBody(event)
 
-    const { SUPABASE_URL, SUPABASE_KEY } = process.env
     try {
-        const sb = createClient(SUPABASE_URL, SUPABASE_KEY)
 
         
         let sb_resp;
